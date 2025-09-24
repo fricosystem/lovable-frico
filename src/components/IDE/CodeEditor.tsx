@@ -315,15 +315,15 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ selectedFile, theme }) => {
   return (
     <div className="h-full w-full flex flex-col min-h-0 overflow-hidden">
       {/* Abas dos arquivos */}
-      <div className="flex border-b bg-gradient-to-r from-muted/20 to-muted/10 overflow-x-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent min-w-0">
+      <div className="inline-flex h-10 items-center justify-start rounded-none bg-muted/30 p-1 text-muted-foreground overflow-x-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent min-w-0 border-b">
         <div className="flex min-w-0">
           {openFiles.map((file) => (
             <div
               key={file.path}
-              className={`flex items-center gap-2 px-3 py-2.5 border-r border-border/30 cursor-pointer whitespace-nowrap transition-all duration-200 group min-w-0 max-w-[200px] ${
+              className={`inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer group min-w-0 max-w-[200px] gap-2 ${
                 activeFile === file.path 
-                  ? 'bg-background border-b-2 border-primary shadow-sm text-primary font-medium' 
-                  : 'hover:bg-muted/40 hover:text-foreground'
+                  ? 'bg-background text-foreground shadow-sm data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm' 
+                  : 'hover:bg-background/80 hover:text-foreground'
               }`}
               onClick={() => setActiveFile(file.path)}
             >
